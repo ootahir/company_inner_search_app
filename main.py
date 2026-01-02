@@ -65,7 +65,21 @@ cn.display_select_mode()
 # AIメッセージの初期表示
 cn.display_initial_ai_message()
 
+############################################################
+# 修正2026年1月2日
+############################################################
+import display components as display
 
+display.apply_sidebar_gray()
+display.display_app_title()
+
+display.display_select_mode()
+display.display_sidebar_description()
+
+# 初回だけ挨拶
+if "initialized" not in st.session_state:
+    display.display_initial_ai_message()
+    st.session_state.initialized = True
 ############################################################
 # 5. 会話ログの表示
 ############################################################

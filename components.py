@@ -21,34 +21,64 @@ def display_app_title():
     st.markdown(f"## {ct.APP_NAME}")
 
 
-"""
-    サイドメニューの背景色をグレーに変更
-"""
 def apply_sidebar_gray():
+    """サイドメニューの背景色をグレーに変更"""
     st.markdown(
+        """
         <style>
         section[data-testid="stSidebar"] {
             background-color: #E5E7EB;
         }
         </style>
+        """,
         unsafe_allow_html=True
     )
 
-
 def display_select_mode():
-    """
-    回答モードのラジオボタンを表示
-    """
+    """回答モードのラジオボタンを表示（サイドバー）"""
+    st.session_state.mode = st.sidebar.radio(
+        label="",
+        options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
+        label_visibility="collapsed"
+    )
+#############################################################
+#def display_select_mode():
+    #"""
+    #回答モードのラジオボタンを表示
+    #"""
     # 回答モードを選択する用のラジオボタンを表示
     #col1, col2 = st.columns([100, 1])
     #with col1:
         # 「label_visibility="collapsed"」とすることで、ラジオボタンを非表示にする
-        st.session_state.mode = st.sidebar.radio(
-            label="",
-            options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
-            label_visibility="collapsed"
-        )
+        #st.session_state.mode = st.sidebar.radio(
+           #options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
+            #label_visibility="collapsed"
+        #)
+##############################################################
+def display_sidebar_description():
+    """サイドバーの機能説明"""
+    st.sidebar.markdown("**【「社内文書検索」を選択した場合】**")
+    st.sidebar.info("入力内容と関連性が高い社内文書のありかを検索できます。")
+    st.sidebar.code(
+        "【入力例】\n社員の育成方針に関するMTGの議事録",
+        wrap_lines=True,
+        language=None
+    )
 
+    st.sidebar.markdown("**【「社内問い合わせ」を選択した場合】**")
+    st.sidebar.info("質問・要望に対して、社内文書の情報をもとに回答を得られます。")
+    st.sidebar.code(
+        "【入力例】\n人事部に所属している従業員情報を一覧化して",
+        wrap_lines=True,
+        language=None
+    )
+def display_initial_ai_message():
+    """AIメッセージの初期表示（チャットだけ）"""
+    with st.chat_message("assistant"):
+        st.markdown(
+            "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
+            "左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
+        )
 
 def display_initial_ai_message():
     """
