@@ -19,6 +19,19 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 import constants as ct
+from langchain.text_splitter import CharacterTextSplitter
+from rag_config import (
+    CHUNK_SIZE,
+    CHUNK_OVERLAP,
+    CHUNK_SEPARATOR,
+    RETRIEVER_TOP_K,
+)
+
+text_splitter = CharacterTextSplitter(
+    chunk_size=CHUNK_SIZE,
+    chunk_overlap=CHUNK_OVERLAP,
+    separator=CHUNK_SEPARATOR,
+)
 
 
 ############################################################
@@ -123,9 +136,9 @@ def initialize_retriever():
     
     # チャンク分割用のオブジェクトを作成
     text_splitter = CharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=50,
-        separator="\n"
+        chunk_size=CHUNK_SIZE,
+        chunk_overlap=CHUNK_OVERLAP,
+        separator=CHUNK_SEPARATOR
     )
 
     # チャンク分割を実施
@@ -135,7 +148,7 @@ def initialize_retriever():
     db = Chroma.from_documents(splitted_docs, embedding=embeddings)
 
     # ベクターストアを検索するRetrieverの作成
-    st.session_state.retriever = db.as_retriever(search_kwargs={"k": 3})
+    st.session_state.retriever = db.as_retriever(search_kwargs={"k": RETRIEVER_TOP_K})
 
 
 def initialize_session_state():
