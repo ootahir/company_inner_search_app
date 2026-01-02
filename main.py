@@ -68,7 +68,7 @@ cn.display_initial_ai_message()
 ############################################################
 # 修正2026年1月2日
 ############################################################
-import display components as display
+import components as display
 
 display.apply_sidebar_gray()
 display.display_app_title()
