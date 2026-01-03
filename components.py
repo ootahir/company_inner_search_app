@@ -86,39 +86,17 @@ def apply_ai_comment_background():
 def display_sidebar_description():
     """サイドバーの機能説明"""
     st.sidebar.markdown("**【「社内文書検索」を選択した場合】**")
-    st.sidebar.info(
-        '<div style="'
-            'font-weight:bold;'
-            '">'
-            '入力内容と関連性が高い社内文書のありかを検索できます。'
-            '</div>',
-        unsafe_allow_html=True
-    )
+    st.sidebar.info("入力内容と関連性が高い社内文書のありかを検索できます。")
     st.sidebar.code(
-        '<div style="'
-            'font-weight:bold;'
-            '">'
-            '【入力例】\n社員の育成方針に関するMTGの議事録 '
-            '</div>',
-        unsafe_allow_html=True
+        "【入力例】\n社員の育成方針に関するMTGの議事録",
+        language=None
     )
 
     st.sidebar.markdown("**【「社内問い合わせ」を選択した場合】**")
-    st.sidebar.info(
-        '<div style="'
-            'font-weight:bold;'
-            '">'
-            '質問・要望に対して、社内文書の情報をもとに回答を得られます。'
-            '</div>',
-        unsafe_allow_html=True
-    )
+    st.sidebar.info("質問・要望に対して、社内文書の情報をもとに回答を得られます。")
     st.sidebar.code(
-        '<div style="'
-            'font-weight:bold;'
-            '">'
-            '【入力例】\n人事部に所属している従業員情報を一覧化して '
-            '</div>',
-        unsafe_allow_html=True
+        "【入力例】\n人事部に所属している従業員情報を一覧化して",
+        language=None
     )
     #st.sidebar.info("質問・要望に対して、社内文書の情報をもとに回答を得られます。")
     #st.sidebar.code(
