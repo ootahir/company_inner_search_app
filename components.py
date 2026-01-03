@@ -104,23 +104,23 @@ def display_sidebar_description():
     #"""AIメッセージの初期表示（チャットだけ）"""
     #with st.chat_message("assistant"):
         #st.markdown(
-           # "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
+        # "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
             #"左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
         #)
 #def display_initial_ai_message():
     #"""AIメッセージの初期表示（チャットだけ）"""
     #with st.chat_message("assistant"):
     #    st.markdown(
-     #       """
-     #   <style>
+    #       """
+    #   <style>
      #   /* assistant（AI）のコメント背景 */
-      #  div[data-testid="stChatMessage"][aria-label="assistant"] {
+    #  div[data-testid="stChatMessage"][aria-label="assistant"] {
       #      background-color: #C2F5D8;   /* ← 好きな色に変更 */
-       #     padding: 12px;
-      #  }
-      #  </style>
-      #  """,
-      #  unsafe_allow_html=True
+    #     padding: 12px;
+    #  }
+    #  </style>
+    #  """,
+    #  unsafe_allow_html=True
     #)
 ###############################################################
 2026.1.3修正
