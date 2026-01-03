@@ -61,7 +61,8 @@ cn.display_app_title()
 
 # モード表示
 cn.display_select_mode()
-
+# バックグランドカラー2026.1.3
+cn.apply_ai_comment_background()
 # AIメッセージの初期表示
 cn.display_initial_ai_message()
 

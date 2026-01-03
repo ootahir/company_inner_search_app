@@ -41,6 +41,21 @@ def display_select_mode():
         options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
         label_visibility="collapsed"
     )
+#2026.1.3追加background color
+def apply_ai_comment_background():
+    """AIメッセージの背景色を変更"""
+    st.markdown(
+        """
+        <style>
+        /* assistant（AI）のコメント背景 */
+        div[data-testid="stChatMessage"][aria-label="assistant"] {
+            background-color: #C2F5D8;   /* ← 好きな色に変更 */
+            padding: 12px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 #############################################################
 #def display_select_mode():
     #"""
@@ -74,14 +89,13 @@ def display_sidebar_description():
     )
 ###############################################################
 #2026.1.2修正
-#def display_initial_ai_message():
-    #"""AIメッセージの初期表示（チャットだけ）"""
-    #with st.chat_message("assistant"):
-        #st.markdown(
-            #"こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
-            #"左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
-        #)
-        ################################################################
+def display_initial_ai_message():
+    """AIメッセージの初期表示（チャットだけ）"""
+    with st.chat_message("assistant"):
+        st.markdown(
+            "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
+            "左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
+        )
 def display_initial_ai_message():
     """AIメッセージの初期表示（チャットだけ）"""
     with st.chat_message("assistant"):
