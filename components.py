@@ -167,8 +167,9 @@ def display_initial_ai_message():
             'border-radius:8px;'
             'padding:11px;'
             'box-sizing:border-box;'
+            'color:#5D9D6E;'
             '">'
-            'こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>'
+            'こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。'
             'サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。'
             '</div>'
 
@@ -177,6 +178,7 @@ def display_initial_ai_message():
             'border-radius:8px;'
             'padding:11px;'
             'box-sizing:border-box;'
+            'color:#AE8F41;'
             '">'
             '⚠ 具体的に入力したほうが期待通りの回答を得やすいです。'
             '</div>'
