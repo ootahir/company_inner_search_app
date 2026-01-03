@@ -45,6 +45,8 @@ def display_select_mode():
         options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
         label_visibility="collapsed"
     )
+    st.sidebar.divider()  # ★ここで横線
+
 #def display_select_mode():
     #"""回答モードのラジオボタンを表示（サイドバー）"""
     #st.session_state.mode = st.sidebar.radio(
@@ -129,8 +131,17 @@ def display_initial_ai_message():
     """初期表示：AIメッセージ（緑）＋注意（黄色）"""
     with st.chat_message("assistant"):
         st.markdown(
-        "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
-        "サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
+        """
+            <div style="
+                background-color:#C2F5D8;
+                border-radius:8px;
+                padding:12px;
+            ">
+                こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
+                サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
     # 画像の黄色い注意ボックス（⚠）に相当
