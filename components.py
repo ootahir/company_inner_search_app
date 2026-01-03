@@ -176,7 +176,6 @@ def display_initial_ai_message():
             'background-color:#FFF7CC;'
             'border-radius:8px;'
             'padding:11px;'
-            'border-left:6px solid #FACC15;'
             'box-sizing:border-box;'
             '">'
             '⚠ 具体的に入力したほうが期待通りの回答を得やすいです。'
