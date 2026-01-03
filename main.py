@@ -56,40 +56,24 @@ if not "initialized" in st.session_state:
 ############################################################
 # 4. 初期表示
 ############################################################
+# サイドバーの背景色を適用
+cn.apply_sidebar_gray()
+
 # タイトル表示
 cn.display_app_title()
 
-# モード表示
+# モード選択表示
 cn.display_select_mode()
-# バックグランドカラー2026.1.3
+
+# サイドバーの説明表示
+cn.display_sidebar_description()
+
+# AI回答欄の背景色を適用
 cn.apply_ai_comment_background()
-# AIメッセージの初期表示
-cn.display_initial_ai_message()
 
-############################################################
-# 修正2026年1月2日
-############################################################
-import components as display
-
-display.apply_sidebar_gray()
-#display.display_app_title()
-############################################################
-#2026.1.3修正
-############################################################
-
-#display.display_select_mode()
-#display.display_sidebar_description()
-display.apply_ai_comment_background()
-#タイトル表示
-display.display_app_title()
-# サイドバー
-display.display_select_mode()
-display.display_sidebar_description()
-
-# 初回だけ挨拶git2026.1.3修正display.display_initial_ai_message()追加
-if "initialized" not in st.session_state:
-    display.display_initial_ai_message()
-    st.session_state.initialized = True
+# 初回のみAIの挨拶メッセージを表示
+if "messages" not in st.session_state or len(st.session_state.messages) == 0:
+    cn.display_initial_ai_message()
 ############################################################
 # 5. 会話ログの表示
 ############################################################
