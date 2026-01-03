@@ -156,8 +156,7 @@ def display_initial_ai_message():
         st.markdown(
             """
             <div style="
-                max-width: 700px;
-                margin: 0 auto;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 gap: 12px;
@@ -165,9 +164,11 @@ def display_initial_ai_message():
 
                 <!-- 緑の初期メッセージ -->
                 <div style="
+                    width: 100%;
                     background-color:#EDFAEE;
                     border-radius:8px;
                     padding:11px;
+                    box-sizing: border-box;
                 ">
                     こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
                     サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
@@ -175,10 +176,12 @@ def display_initial_ai_message():
 
                 <!-- 黄色の注意メッセージ -->
                 <div style="
+                    width: 100%;
                     background-color:#FFF7CC;
                     border-radius:8px;
                     padding:11px;
                     border-left: 6px solid #FACC15;
+                    box-sizing: border-box;
                 ">
                     ⚠ 具体的に入力したほうが期待通りの回答を得やすいです。
                 </div>
