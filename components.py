@@ -33,23 +33,34 @@ def apply_sidebar_gray():
         """,
         unsafe_allow_html=True
     )
-
+############################################################
+#2026.1.3修正
+############################################################
 def display_select_mode():
     """回答モードのラジオボタンを表示（サイドバー）"""
+    st.sidebar.markdown("### 利用目的")  # ← 画像の「利用目的」
+
     st.session_state.mode = st.sidebar.radio(
         label="",
         options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
         label_visibility="collapsed"
     )
+#def display_select_mode():
+    #"""回答モードのラジオボタンを表示（サイドバー）"""
+    #st.session_state.mode = st.sidebar.radio(
+        #label="",
+        #options=[ct.ANSWER_MODE_1, ct.ANSWER_MODE_2],
+        #label_visibility="collapsed"
+    #)
 #2026.1.3追加background color
 def apply_ai_comment_background():
-    """AIメッセージの背景色を変更"""
+    """AIメッセージ（assistant）の背景色を変更"""
     st.markdown(
         """
         <style>
-        /* assistant（AI）のコメント背景 */
         div[data-testid="stChatMessage"][aria-label="assistant"] {
-            background-color: #C2F5D8;   /* ← 好きな色に変更 */
+            background-color: #C2F5D8;
+            border-radius: 8px;
             padding: 12px;
         }
         </style>
@@ -89,30 +100,44 @@ def display_sidebar_description():
     )
 ###############################################################
 #2026.1.2修正
+#def display_initial_ai_message():
+    #"""AIメッセージの初期表示（チャットだけ）"""
+    #with st.chat_message("assistant"):
+        #st.markdown(
+           # "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
+            #"左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
+        #)
+#def display_initial_ai_message():
+    #"""AIメッセージの初期表示（チャットだけ）"""
+    #with st.chat_message("assistant"):
+    #    st.markdown(
+     #       """
+     #   <style>
+     #   /* assistant（AI）のコメント背景 */
+      #  div[data-testid="stChatMessage"][aria-label="assistant"] {
+      #      background-color: #C2F5D8;   /* ← 好きな色に変更 */
+       #     padding: 12px;
+      #  }
+      #  </style>
+      #  """,
+      #  unsafe_allow_html=True
+    #)
+###############################################################
+2026.1.3修正
+#############################################################
 def display_initial_ai_message():
-    """AIメッセージの初期表示（チャットだけ）"""
+    """初期表示：AIメッセージ（緑）＋注意（黄色）"""
     with st.chat_message("assistant"):
         st.markdown(
             "こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。"
-            "左のサイドメニューで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
+            "サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。"
         )
-def display_initial_ai_message():
-    """AIメッセージの初期表示（チャットだけ）"""
-    with st.chat_message("assistant"):
-        st.markdown(
-            """
-        <style>
-        /* assistant（AI）のコメント背景 */
-        div[data-testid="stChatMessage"][aria-label="assistant"] {
-            background-color: #C2F5D8;   /* ← 好きな色に変更 */
-            padding: 12px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+
+    # 画像の黄色い注意ボックス（⚠）に相当
+    st.warning("具体的に入力したほうが期待通りの回答を得やすいです。")
+
 ##############################################################
-#2026年1月㏡2日修正
+#2026年1月2日修正
 ##############################################################
 ## タイトル表示"""
     #AIメッセージの初期表示

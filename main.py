@@ -73,13 +73,23 @@ import components as display
 
 display.apply_sidebar_gray()
 #display.display_app_title()
+############################################################
+#2026.1.3修正
+############################################################
 
 #display.display_select_mode()
+#display.display_sidebar_description()
+display.apply_ai_comment_background()
+#タイトル表示
+display.display_app_title()
+# サイドバー
+display.display_select_mode()
 display.display_sidebar_description()
 
-# 初回だけ挨拶git
-#if "initialized" not in st.session_state:
-    #st.session_state.initialized = True
+# 初回だけ挨拶git2026.1.3修正display.display_initial_ai_message()追加
+if "initialized" not in st.session_state:
+    display.display_initial_ai_message()
+    st.session_state.initialized = True
 ############################################################
 # 5. 会話ログの表示
 ############################################################
