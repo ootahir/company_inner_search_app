@@ -82,7 +82,7 @@ display.apply_sidebar_gray()
 display.apply_ai_comment_background()
 #タイトル表示
 display.display_app_title()
-# サイドバーの説明表示
+# サイド
 display.display_select_mode()
 display.display_sidebar_description()
 
