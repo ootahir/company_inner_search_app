@@ -131,7 +131,7 @@ def display_sidebar_description():
     #"""初期表示：AIメッセージ（緑）＋注意（黄色）"""
     #with st.chat_message("assistant"):
         #st.markdown(
-        # """
+        #"""
             #<div style="
                 #background-color:#EDFAEE;
                 #border-radius:8px;
@@ -150,10 +150,9 @@ def display_sidebar_description():
 #2026.1.3修正
 ##############################################################
 def display_initial_ai_message():
-    """初期メッセージ＋注意を同一幅で縦並び表示"""
+    """初期表示：AIメッセージ（緑）＋注意（黄色）を同一幅で縦並び表示"""
 
-    with st.container():
-        # 共通ラッパー（幅・位置を統一）
+    with st.chat_message("assistant"):
         st.markdown(
             """
             <div style="
@@ -166,9 +165,9 @@ def display_initial_ai_message():
 
                 <!-- 緑の初期メッセージ -->
                 <div style="
-                    background-color: #EDFAEE;
-                    border-radius: 8px;
-                    padding: 12px;
+                    background-color:#EDFAEE;
+                    border-radius:8px;
+                    padding:11px;
                 ">
                     こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
                     サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
@@ -176,9 +175,9 @@ def display_initial_ai_message():
 
                 <!-- 黄色の注意メッセージ -->
                 <div style="
-                    background-color: #FFF7CC;
-                    border-radius: 8px;
-                    padding: 12px;
+                    background-color:#FFF7CC;
+                    border-radius:8px;
+                    padding:11px;
                     border-left: 6px solid #FACC15;
                 ">
                     ⚠ 具体的に入力したほうが期待通りの回答を得やすいです。
