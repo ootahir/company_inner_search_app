@@ -127,26 +127,67 @@ def display_sidebar_description():
 ###############################################################
 # 2026.1.3修正
 #############################################################
+#def display_initial_ai_message():
+    #"""初期表示：AIメッセージ（緑）＋注意（黄色）"""
+    #with st.chat_message("assistant"):
+        #st.markdown(
+        # """
+            #<div style="
+                #background-color:#EDFAEE;
+                #border-radius:8px;
+                #padding:11px;
+            #">
+                #こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
+                #サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
+            #</div>
+            #""",
+            #unsafe_allow_html=True
+        #)
+
+    # 画像の黄色い注意ボックス（⚠）に相当
+    #st.warning("⚠具体的に入力したほうが期待通りの回答を得やすいです。")
+##############################################################
+#2026.1.3修正
+##############################################################
 def display_initial_ai_message():
-    """初期表示：AIメッセージ（緑）＋注意（黄色）"""
-    with st.chat_message("assistant"):
+    """初期メッセージ＋注意を同一幅で縦並び表示"""
+
+    with st.container():
+        # 共通ラッパー（幅・位置を統一）
         st.markdown(
-        """
+            """
             <div style="
-                background-color:#C2F5D8;
-                border-radius:8px;
-                padding:12px;
+                max-width: 700px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
             ">
-                こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
-                サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
+
+                <!-- 緑の初期メッセージ -->
+                <div style="
+                    background-color: #EDFAEE;
+                    border-radius: 8px;
+                    padding: 12px;
+                ">
+                    こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
+                    サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
+                </div>
+
+                <!-- 黄色の注意メッセージ -->
+                <div style="
+                    background-color: #FFF7CC;
+                    border-radius: 8px;
+                    padding: 12px;
+                    border-left: 6px solid #FACC15;
+                ">
+                    ⚠ 具体的に入力したほうが期待通りの回答を得やすいです。
+                </div>
+
             </div>
             """,
             unsafe_allow_html=True
         )
-
-    # 画像の黄色い注意ボックス（⚠）に相当
-    st.warning("⚠具体的に入力したほうが期待通りの回答を得やすいです。")
-
 ##############################################################
 #2026年1月2日修正
 ##############################################################
