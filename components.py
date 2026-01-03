@@ -132,7 +132,7 @@ def display_sidebar_description():
     #with st.chat_message("assistant"):
         #st.markdown(
         #"""
-            #<div style="
+           # <div style="
                 #background-color:#EDFAEE;
                 #border-radius:8px;
                 #padding:11px;
@@ -150,46 +150,42 @@ def display_sidebar_description():
 #2026.1.3修正
 ##############################################################
 def display_initial_ai_message():
-    """初期表示：AIメッセージ（緑）＋注意（黄色）を同一幅で縦並び表示"""
+    """初期表示：AIメッセージ（緑）＋注意（黄色）"""
 
     with st.chat_message("assistant"):
         st.markdown(
-            """
-            <div style="
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            ">
+            '<div style="'
+            'max-width:700px;'
+            'margin:0 auto;'
+            'display:flex;'
+            'flex-direction:column;'
+            'gap:12px;'
+            '">'
 
-                <!-- 緑の初期メッセージ -->
-                <div style="
-                    width: 100%;
-                    background-color:#EDFAEE;
-                    border-radius:8px;
-                    padding:11px;
-                    box-sizing: border-box;
-                ">
-                    こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>
-                    サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。
-                </div>
+            '<div style="'
+            'background-color:#EDFAEE;'
+            'border-radius:8px;'
+            'padding:11px;'
+            'box-sizing:border-box;'
+            '">'
+            'こんにちは。私は社内文書の情報をもとに回答する生成AIチャットボットです。<br>'
+            'サイドバーで利用目的を選択し、画面下部のチャット欄からメッセージを送信してください。'
+            '</div>'
 
-                <!-- 黄色の注意メッセージ -->
-                <div style="
-                    width: 100%;
-                    background-color:#FFF7CC;
-                    border-radius:8px;
-                    padding:11px;
-                    border-left: 6px solid #FACC15;
-                    box-sizing: border-box;
-                ">
-                    ⚠ 具体的に入力したほうが期待通りの回答を得やすいです。
-                </div>
+            '<div style="'
+            'background-color:#FFF7CC;'
+            'border-radius:8px;'
+            'padding:11px;'
+            'border-left:6px solid #FACC15;'
+            'box-sizing:border-box;'
+            '">'
+            '⚠ 具体的に入力したほうが期待通りの回答を得やすいです。'
+            '</div>'
 
-            </div>
-            """,
+            '</div>',
             unsafe_allow_html=True
         )
+
 ##############################################################
 #2026年1月2日修正
 ##############################################################
