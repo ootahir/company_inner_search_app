@@ -72,14 +72,14 @@ cn.display_initial_ai_message()
 import components as display
 
 display.apply_sidebar_gray()
-display.display_app_title()
+#display.display_app_title()
 
-display.display_select_mode()
+#display.display_select_mode()
 display.display_sidebar_description()
 
 # 初回だけ挨拶git
-if "initialized" not in st.session_state:
-    st.session_state.initialized = True
+#if "initialized" not in st.session_state:
+    #st.session_state.initialized = True
 ############################################################
 # 5. 会話ログの表示
 ############################################################
