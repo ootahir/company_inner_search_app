@@ -51,7 +51,8 @@ SUPPORTED_EXTENSIONS = {
     ".pdf": PyMuPDFLoader,
     ".docx": Docx2txtLoader,
     ".txt": lambda path: TextLoader(path, encoding="utf-8"),# ★追加：txtも読み込み対象にする2026.1.4修正
-    ".csv": lambda path: CSVLoader(path, encoding="utf-8")
+    ".csv": load_csv_as_single_doc,  # ★CSVは統合関数（docsを返す）2026.1.8修正
+    #".csv": lambda path: CSVLoader(path, encoding="utf-8")
 }
 WEB_URL_LOAD_TARGETS = [
     "https://generative-ai.web-camp.io/"

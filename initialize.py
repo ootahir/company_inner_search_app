@@ -211,27 +211,57 @@ def recursive_file_check(path, docs_all):
         # パスがファイルの場合、ファイル読み込み
         file_load(path, docs_all)
 
+##############################################################
+#2026.1.8修正
+################################################################
+#def file_load(path, docs_all):
+    #"""
+    #ファイル内のデータ読み込み
 
+    #Args:
+        #path: ファイルパス
+        #docs_all: データソースを格納する用のリスト
+    #"""
+    ## ファイルの拡張子を取得
+    #file_extension = os.path.splitext(path)[1]
+    # ファイル名（拡張子を含む）を取得
+    ### 想定していたファイル形式の場合のみ読み込む
+    #if file_extension in ct.SUPPORTED_EXTENSIONS:
+        # ファイルの拡張子に合ったdata loaderを使ってデータ読み込み
+        #loader = ct.SUPPORTED_EXTENSIONS[file_extension](path)
+        #docs = loader.load()
+        #docs_all.extend(docs)
+##2026.1.8コード
 def file_load(path, docs_all):
     """
-    ファイル内のデータ読み込み
-
-    Args:
-        path: ファイルパス
-        docs_all: データソースを格納する用のリスト
+    ファイル内のデータ読み込み（CSVは統合ドキュメント化）
     """
-    # ファイルの拡張子を取得
-    file_extension = os.path.splitext(path)[1]
-    # ファイル名（拡張子を含む）を取得
+    # 拡張子
+    file_extension = os.path.splitext(path)[1].lower()
     file_name = os.path.basename(path)
 
-    # 想定していたファイル形式の場合のみ読み込む
-    if file_extension in ct.SUPPORTED_EXTENSIONS:
-        # ファイルの拡張子に合ったdata loaderを使ってデータ読み込み
-        loader = ct.SUPPORTED_EXTENSIONS[file_extension](path)
-        docs = loader.load()
-        docs_all.extend(docs)
+    if file_extension not in ct.SUPPORTED_EXTENSIONS:
+        return
 
+    # ★CSVは「統合関数」を呼ぶ（docs=list[Document] が返る想定）
+    if file_extension == ".csv":
+        docs = ct.SUPPORTED_EXTENSIONS[file_extension](path)  # ← loaderではなく docs を返す
+        # 念のため文字列調整（Windows対策）
+        for d in docs:
+            d.page_content = adjust_string(d.page_content)
+        docs_all.extend(docs)
+        return
+
+    # それ以外は従来通り Loader.load()
+    loader = ct.SUPPORTED_EXTENSIONS[file_extension](path)
+    docs = loader.load()
+
+    # 念のため文字列調整（PDF/DOCX/TXTにも効く）
+    for d in docs:
+        d.page_content = adjust_string(d.page_content)
+
+    docs_all.extend(docs)
+##############################################################
 
 def adjust_string(s):
     """
